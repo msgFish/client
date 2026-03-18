@@ -1,0 +1,44 @@
+.storybook-textarea {
+  display: flex;
+  flex-direction: row;
+  border: 1px outset #FFFFFF10;
+  border-radius: 0.5em;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+
+  transition: all 0.1s ease-in-out;
+
+  background-color: #393A42;
+  font-size: 14px;
+
+  min-height: 52px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  & > div {
+    display: flex;
+    align-items: center;  
+  }
+
+  & > div:first-child, & > div:last-child {
+    padding: 0 10px;
+  }
+
+  & > div:nth-child(2) {
+    padding: 14px 0;
+
+    & > textarea {
+      width: 100%;
+
+      line-height: 1;
+
+      color: inherit;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      resize: none;
+      height: 0px;
+    }
+  }
+}
