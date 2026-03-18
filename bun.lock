@@ -5,14 +5,14 @@
     "": {
       "name": "msgfish",
     },
-    "packages/app": {
+    "apps/desktop": {
       "name": "app",
       "version": "0.1.0",
       "dependencies": {
         "@tauri-apps/api": "^2",
         "@tauri-apps/plugin-deep-link": "~2",
         "@tauri-apps/plugin-opener": "^2",
-        "ui": "workspace:*",
+        "ui": "../../packages/ui",
       },
       "devDependencies": {
         "@sveltejs/adapter-static": "^3.0.6",
@@ -352,7 +352,7 @@
 
     "ansi-styles": ["ansi-styles@5.2.0", "", {}, "sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA=="],
 
-    "app": ["app@workspace:packages/app"],
+    "app": ["app@workspace:apps/desktop"],
 
     "aria-query": ["aria-query@5.3.1", "", {}, "sha512-Z/ZeOgVl7bcSYZ/u/rh0fOpvEpq//LZmdbkXyc7syVzjPAhfOa9ebsdTSjEBDU4vs5nC98Kfduj1uFo0qyET3g=="],
 

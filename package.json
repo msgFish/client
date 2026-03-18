@@ -1,5 +1,17 @@
 {
   "name": "client",
   "type": "module",
-  "workspaces": ["./packages/*"]
+  "workspaces": [
+    "./packages/*",
+    "./apps/*"
+  ],
+  "scripts": {
+    "build": "bun run build:packages && bun run build:apps",
+    "build:packages": "bun run --filter='./packages/*' build",
+    "build:apps": "bun run --filter='./apps/*' build",
+
+    "build:dev": "bun run build:packages:dev && bun run build:apps:dev",
+    "build:packages:dev": "bun run --filter='./packages/*' build:dev",
+    "build:apps:dev": "bun run --filter='./apps/*' build"
+  }
 }
