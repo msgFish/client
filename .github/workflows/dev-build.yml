@@ -47,7 +47,7 @@ jobs:
         run: bun install
 
       - name: Build packages
-        run: bun run build:dev --filter './packages/**'
+        run: bun run build:packages:dev
 
       - uses: tauri-apps/tauri-action@ci/release
         env:
