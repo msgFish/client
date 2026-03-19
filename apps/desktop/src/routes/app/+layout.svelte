@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { onOpenUrl } from '@tauri-apps/plugin-deep-link';
   import './app.css';
+
+  import { onOpenUrl } from '@tauri-apps/plugin-deep-link';
   import { setStoredProperty } from '$lib/storage';
   import { goto } from '$app/navigation';
 

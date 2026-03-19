@@ -44,9 +44,9 @@
       const message: {
         type: string,
         data: any
-      } = e.data;
+      } = JSON.parse(e.data);
 
-      if (message.type === 'newMessage') {
+      if (message.type === 'toproto:newMessage') {
         messages.push(message.data);
       }
     }

@@ -74,7 +74,9 @@
           <Card 
             title={others.map(m => m.handle).join(', ')} 
             subtitle={members.length < 3
-              ? `${lastMessage.author_did === me.did ? 'You' : others[0].handle}: ${lastMessage.text}`
+              ? lastMessage 
+                ? `${lastMessage.author_did === me.did ? 'You' : others[0].handle}: ${lastMessage.text}`
+                : '<no history>'
               : `${channel.members.length} member(s)`
             }
             onclick={() => goto(`/app/chat/${selected_collection_lid}/channel/${channel.lid}`)}
