@@ -46,10 +46,14 @@ jobs:
       - name: Install frontend dependencies
         run: bun install
 
+      - name: Build packages
+        run: bun run build:dev --filter './packages/**'
+
       - uses: tauri-apps/tauri-action@ci/release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          projectPath: './apps/desktop'
           uploadPlainBinary: true
           uploadWorkflowArtifacts: true
           args: ${{ matrix.args }}
