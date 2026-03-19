@@ -51,4 +51,4 @@ jobs:
         with:
           name: tauri-app-${{ matrix.platform }}
           path: |
-            packages/app/src-tauri/target/debug/bundle/
+            packages/app/src-tauri/target/debug/bundle/**/*
