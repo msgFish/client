@@ -16,12 +16,18 @@
     sent: Date;
   }
 
+  interface Member {
+    did: string;
+    handle: string;
+  }
+
   const me = getMe();
 
   let selected_channel_lid = $derived(page.params.channel);
   let channels = getChannels();
 
   let messages = $state<Message[]>([]);
+  let members = $state<Member[]>([]);
 
   async function getMessages(channel_lid: string) {
     const res = await api(`/channels/${channel_lid}/messages`);
@@ -33,8 +39,21 @@
     }
   }
 
+  async function getMembers(channel_lid: string) {
+    const res = await api(`/channels/${channel_lid}/members`);
+
+    if (res.ok) {
+      members = await res.json();
+    } else {
+      console.log(`${res.status} - ${res.statusText}`);
+    }
+  }
+
   $effect(() => {
-    if (selected_channel_lid) getMessages(selected_channel_lid);
+    if (selected_channel_lid) {
+      getMessages(selected_channel_lid);
+      getMembers(selected_channel_lid);
+    }
   });
 
   onMount(async () => {
@@ -62,7 +81,7 @@
     <div class="flex flex-col w-full h-full">
       <div class="channel_header w-full h-12 py-3 px-4">
         <p class="text-sm font-bold line-clamp-1 text-ellipsis">
-          {channel.members.filter(m => m.did !== me.did).map(m => m.handle).join(', ')}
+          {members.filter(m => m.did !== me.did).map(m => m.handle).join(', ')}
         </p>
       </div>
 
@@ -76,7 +95,7 @@
           ]}>
             {#if !isPrevAuthor}
               <p class="text-xs font-bold text-gray-400 overflow-hidden text-ellipsis">
-                {channel.members.find(m => m.did == message.author_did)?.handle}
+                {members.find(m => m.did == message.author_did)?.handle}
               </p>
             {/if}
 
@@ -122,7 +141,7 @@
 
     <div class="member_list flex flex-col w-100 px-1.5 py-2 space-y-2">
       <div class="flex flex-row px-1 justify-between text-gray-400">
-        <p class="text-xs font-semibold">Members — {channel.members.length}</p>
+        <p class="text-xs font-semibold">Members — {members.length}</p>
 
         <button class="cursor-pointer">
           <Icon icon='plus' size={15} strokeWidth={2.5} />
@@ -130,7 +149,7 @@
       </div>
 
       <div class="space-y-1">
-        {#each channel.members as member}
+        {#each members as member}
           <Card thin title={member.handle} />
         {/each}
       </div>

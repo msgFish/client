@@ -1,8 +1,10 @@
 .card {
   width: 100%;
+  min-height: 32px;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: left;
 
   padding: 2px 8px;
@@ -12,6 +14,17 @@
 
   &:hover {
     background-color: #44454D;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  :where(& > :not(:last-child)) {
+    margin-inline-end: 8px;
   }
 }
 

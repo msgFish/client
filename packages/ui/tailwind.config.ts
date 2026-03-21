@@ -1,11 +1,11 @@
-import type { Config } from "tailwindcss";
-
 export default {
-  content: ["./src/**/*.{html,js,svelte,ts}"],
-
+  content: [
+    "./src/**/*.{html,js,svelte,ts}",
+    "./stories/**/*.{js,ts,svelte}",
+    "./.storybook/**/*.{js,ts,svelte}",
+  ],
   theme: {
-    extend: {}
+    extend: {},
   },
-
-  plugins: []
-} as Config;
+  plugins: [],
+};

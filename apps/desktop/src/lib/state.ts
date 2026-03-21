@@ -13,11 +13,7 @@ export function getMe() {
   return getContext<MeState>('me');
 }
 
-interface Channel {
-  members: {
-    did: string;
-    handle: string;
-  }[];
+export interface Channel {
   last_message: {
     lid: string;
     author_did: string;
@@ -27,7 +23,7 @@ interface Channel {
   };
   lid: string;
   type: "text" | "voice";
-  name: string | null;
+  name: string;
   created: Date | null;
   parent_lid: string | null;
   collection_lid: string | null;

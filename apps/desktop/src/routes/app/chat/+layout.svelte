@@ -4,9 +4,15 @@
 
   import { onMount } from 'svelte';
   import { api } from '$lib/api';
-  import { goto } from '$app/navigation';
+  import { afterNavigate, goto, onNavigate } from '$app/navigation';
   import { setStoredProperty } from '$lib/storage';
   import { setMe, type MeState } from '$lib/state';
+
+  interface Collection {
+    lid: string;
+    name: string;
+    created: Date;
+  }
 
   const {
     children
@@ -15,11 +21,24 @@
   let loaded = $state(false);
   let me = $state<Partial<MeState>>({});
     
-  let collections = $state<null>(null);
+  let collections = $state<Collection[]>([]);
 
   $effect(() => {
     setMe(me);
   });
+
+  async function getCollections() {
+    const res = await api('/collections');
+
+    if (res.ok) {
+      collections = await res.json();
+    } else {
+      console.log(`${res.status} - ${res.statusText}`);
+    }
+  }
+
+  afterNavigate(getCollections);
+  onMount(getCollections);
 
   onMount(async () => {
     try {
@@ -39,15 +58,7 @@
     } catch {}
 
     goto('/app/login');
-
-    const res = await api('/collections');
-
-    if (res.ok) {
-      collections = await res.json();
-    } else {
-      console.log(`${res.status} - ${res.statusText}`);
-    }
-  })
+  });
 </script>
 
 <main class="flex flex-row w-full h-full min-h-0 flex-1 py-0.5">
@@ -56,22 +67,35 @@
       <img class="relative -top-5 animate-[fish-spin_1.5s_ease-in-out_infinite]" alt="fish" src={fishLogoGrayscale}/>
     </div>
   {:else}
-    <div id="server_list" class="w-18 h-full flex flex-col px-3.5 py-1.5">
-      <button class="relative w-8.75 h-8.75 cursor-pointer">
-        {#each [fishLogoGrayscale, fishLogo] as image, i}
-          <img 
-            class={[
-              "absolute top-0 transition-opacity duration-150",
-              i === 0
-                ? "hover:opacity-0"
-                : "opacity-0 hover:opacity-100"
-            ]}
-            src={image} 
-            width="100%"
-            alt="Home Icon"
-          />
-        {/each}
-      </button>
+    <div id="server_list" class="w-18 h-full flex flex-col px-3.5 py-1.5 space-y-3">
+      <a href="/app/chat/@me">
+        <button class="relative w-8.75 h-8.75 cursor-pointer">
+          {#each [fishLogoGrayscale, fishLogo] as image, i}
+            <img 
+              class={[
+                "absolute top-0 transition-opacity duration-150",
+                i === 0
+                  ? "hover:opacity-0"
+                  : "opacity-0 hover:opacity-100"
+              ]}
+              src={image} 
+              width="100%"
+              alt="Home Icon"
+            />
+          {/each}
+        </button>
+      </a>
+
+      {#each collections as collection}
+        <a href={"/app/chat/" + collection.lid}>
+          <button class={[
+            "relative w-8.75 h-8.75 cursor-pointer bg-gray-600 hover:bg-gray-500 rounded-lg",
+            "transition-all duration-150 ease"
+          ]}>
+            <p>{collection.name.at(0)}</p>
+          </button>
+        </a>
+      {/each}
     </div>
 
     {@render children?.()}

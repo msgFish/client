@@ -18,7 +18,7 @@
       if (!token) return;
 
       setStoredProperty('token', token);
-      goto('/app/chat');
+      goto('/app/chat/@me');
     }
   });
 </script>
