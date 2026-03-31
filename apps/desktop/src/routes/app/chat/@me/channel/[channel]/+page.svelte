@@ -7,12 +7,13 @@
   import { ojoin } from '$lib/object';
   import { getChannels, getMe } from '$lib/state';
   import { page } from '$app/state';
+  import { sendNotification } from '@tauri-apps/plugin-notification';
 
   interface Message {
     lid: string;
-    author_did: string;
+    author_ref: string;
     text: string | null;
-    channel_lid: string;
+    channel_ref: string;
     sent: Date;
   }
 
@@ -30,7 +31,7 @@
   let members = $state<Member[]>([]);
 
   async function getMessages(channel_lid: string) {
-    const res = await api(`/channels/${channel_lid}/messages`);
+    const res = await api(`/duc/channels/${channel_lid}/messages`);
 
     if (res.ok) {
       messages = await res.json();
@@ -40,7 +41,7 @@
   }
 
   async function getMembers(channel_lid: string) {
-    const res = await api(`/channels/${channel_lid}/members`);
+    const res = await api(`/duc/channels/${channel_lid}/members`);
 
     if (res.ok) {
       members = await res.json();
@@ -65,8 +66,12 @@
         data: any
       } = JSON.parse(e.data);
 
-      if (message.type === 'toproto:newMessage') {
+      if (message.type === 'duc:newMessage') {
         messages.push(message.data);
+        sendNotification({
+          title: members.find(m => m.did === message.data.author_ref)?.handle ?? '<unknown>',
+          body: message.data.text
+        })
       }
     }
   })
@@ -75,7 +80,7 @@
 {#if !selected_channel_lid && !channels}
   <p></p>
 {:else}
-  {@const channel = channels.find(c => c.lid === selected_channel_lid)!}
+  {@const channel = channels.find(c => c.tid === selected_channel_lid)!}
 
   <div id="content" class="content flex flex-row w-full bg-[#2C2D32]">
     <div class="flex flex-col w-full h-full">
@@ -87,7 +92,7 @@
 
       <div class="flex flex-col h-full pb-4 justify-end overflow-y-auto">
         {#each messages as message, i}
-          {@const isPrevAuthor = (messages.at(i - 1)?.author_did === message.author_did) && (i !== 0)}
+          {@const isPrevAuthor = (messages.at(i - 1)?.author_ref === message.author_ref) && (i !== 0)}
 
           <div class={[
             "flex flex-col w-full h-auto px-4 space-y-1 hover:bg-[#44454D]",
@@ -95,7 +100,7 @@
           ]}>
             {#if !isPrevAuthor}
               <p class="text-xs font-bold text-gray-400 overflow-hidden text-ellipsis">
-                {members.find(m => m.did == message.author_did)?.handle}
+                {members.find(m => m.did == message.author_ref)?.handle}
               </p>
             {/if}
 
@@ -117,7 +122,7 @@
           e.currentTarget.reset();
 
           const res = await api(
-            `/channels/${channel.lid}`,
+            `/duc/channels/${channel.tid}/messages`,
             ojoin(method('POST'), json({ text }))
           );
 

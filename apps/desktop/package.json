@@ -15,8 +15,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@atproto/api": "^0.19.5",
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-deep-link": "~2",
+    "@tauri-apps/plugin-notification": "~2",
     "@tauri-apps/plugin-opener": "^2",
     "ui": "workspace:*"
   },

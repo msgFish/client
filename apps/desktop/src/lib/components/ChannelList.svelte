@@ -23,7 +23,7 @@
 
     {@const subtitle = isDM
       ? lastMessage 
-          ? `${lastMessage.author_did === me.did ? 'You' : others[0].handle}: ${lastMessage.text}`
+          ? `${lastMessage.author_ref === me.did ? 'You' : others[0].handle}: ${lastMessage.text}`
           : '<no history>'
       : undefined
     }
@@ -32,7 +32,7 @@
       isChannel={!isDM}
       title={channel.name}
       {subtitle}
-      onclick={() => goto(`/app/chat/${channel.collection_lid ?? '@me'}/channel/${channel.lid}`)}
+      onclick={() => goto(`/app/chat/${channel.collection_lid ?? '@me'}/channel/${channel.tid}`)}
     />
   {/each}
 </div>

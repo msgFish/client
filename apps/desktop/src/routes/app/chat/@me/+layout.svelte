@@ -6,7 +6,6 @@
   import { onMount } from 'svelte';
   import { api } from '$lib/api';
   import { getMe, setChannels, type Channel } from '$lib/state';
-  import { page } from '$app/state';
   import { afterNavigate, goto } from '$app/navigation';
   import ChannelList from '$lib/components/ChannelList.svelte';
   
@@ -15,13 +14,11 @@
   } = $props();
 
   let me = getMe();
-  let selected_collection_lid = $derived(page.params.collection);
-  let selected_channel_lid = $derived(page.params.channel);
 
   let channels = $state<Channel[] | null>(null);
 
   async function getChannels() {
-    const res = await api(`/collections/${selected_collection_lid}/channels`);
+    const res = await api(`/duc/channels`);
 
     if (res.ok) {
       channels = await res.json();
@@ -39,15 +36,13 @@
 </script>
 
 <div class="channel_list flex flex-col w-70 min-w-70 h-[fill] px-1.5 pt-2 pb-1.5 space-y-2">
-  {#if selected_collection_lid === '@me'}
-    <div class="flex flex-row px-1 justify-between text-gray-400">
-      <p class="text-xs font-semibold">Direct Messages</p>
+  <div class="flex flex-row px-1 justify-between text-gray-400">
+    <p class="text-xs font-semibold">Direct Messages</p>
 
-      <button class="cursor-pointer">
-        <Icon icon='plus' size={15} strokeWidth={2.5} />
-      </button>
-    </div>
-  {/if}
+    <button class="cursor-pointer">
+      <Icon icon='plus' size={15} strokeWidth={2.5} />
+    </button>
+  </div>
 
   <div class="flex flex-col h-full justify-between">
     {#if channels}

@@ -20,29 +20,14 @@
 
   let loaded = $state(false);
   let me = $state<Partial<MeState>>({});
-    
-  let collections = $state<Collection[]>([]);
 
   $effect(() => {
     setMe(me);
   });
 
-  async function getCollections() {
-    const res = await api('/collections');
-
-    if (res.ok) {
-      collections = await res.json();
-    } else {
-      console.log(`${res.status} - ${res.statusText}`);
-    }
-  }
-
-  afterNavigate(getCollections);
-  onMount(getCollections);
-
   onMount(async () => {
     try {
-      const res = await api('/users/@me');
+      const res = await api('/duc/users/@me');
 
       if (res.ok) {
         const data = await res.json();
@@ -85,17 +70,6 @@
           {/each}
         </button>
       </a>
-
-      {#each collections as collection}
-        <a href={"/app/chat/" + collection.lid}>
-          <button class={[
-            "relative w-8.75 h-8.75 cursor-pointer bg-gray-600 hover:bg-gray-500 rounded-lg",
-            "transition-all duration-150 ease"
-          ]}>
-            <p>{collection.name.at(0)}</p>
-          </button>
-        </a>
-      {/each}
     </div>
 
     {@render children?.()}

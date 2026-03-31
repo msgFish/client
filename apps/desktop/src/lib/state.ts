@@ -15,17 +15,17 @@ export function getMe() {
 
 export interface Channel {
   last_message: {
-    lid: string;
-    author_did: string;
+    tid: string;
+    author_ref: string;
     text: string | null;
-    channel_lid: string;
+    channel_ref: string;
     sent: Date;
   };
-  lid: string;
+  tid: string;
   type: "text" | "voice";
   name: string;
   created: Date | null;
-  parent_lid: string | null;
+  parent_ref: string | null;
   collection_lid: string | null;
 }
 
