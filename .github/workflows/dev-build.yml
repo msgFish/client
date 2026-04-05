@@ -56,8 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectPath: './apps/desktop'
-          tagName: desktop-v__VERSION__
+          projectPath: './apps/web'
+          tagName: v__VERSION__
           releaseName: 'msgFish Desktop v__VERSION__'
           prerelease: true
           uploadWorkflowArtifacts: true
