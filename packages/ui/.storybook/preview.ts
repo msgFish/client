@@ -1,4 +1,4 @@
-import '../src/tailwind.css';
+import '../src/main.css';
 import type { Preview } from '@storybook/sveltekit'
 
 const preview: Preview = {

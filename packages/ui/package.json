@@ -49,5 +49,9 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"dependencies": {
+		"@storybook/addon-a11y": "^10.3.4",
+		"@storybook/addon-docs": "^10.3.4"
+	}
 }

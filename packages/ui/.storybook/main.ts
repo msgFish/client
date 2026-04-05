@@ -3,18 +3,23 @@ import type { StorybookConfig } from '@storybook/sveltekit';
 import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
-  "stories": [
+  core: {
+    disableTelemetry: true
+  },
+  
+  stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|ts|svelte)"
   ],
-  "addons": [
+
+  addons: [
     "@storybook/addon-svelte-csf",
-    "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-docs"
   ],
-  "framework": "@storybook/sveltekit",
+
+  framework: "@storybook/sveltekit",
+
   viteFinal: async (config) => {
     return mergeConfig(config, {
       plugins: [tailwindcss()],

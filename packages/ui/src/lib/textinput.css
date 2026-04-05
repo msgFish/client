@@ -1,7 +1,7 @@
 .storybook-textinput {
   display: inline-block;
-  border: 1px outset #FFFFFF10;
-  border-radius: 0.5em;
+  border: var(--border-element);
+  border-radius: var(--border-radius-input);
   outline: none;
   line-height: 1;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;

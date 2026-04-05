@@ -1,0 +1,48 @@
+.storybook-toggle {
+  width: fit-content;
+
+  color: white;
+  background-color: var(--bg-element);
+
+  display: flex;
+  flex-direction: row;
+  
+  border: var(--border-element);
+  border-radius: var(--border-radius-button);
+
+  overflow: hidden;
+
+  transition: all 0.1s ease-in-out;
+
+  & > button {
+    width: 40px;
+    height: 36px;
+
+    background-color: transparent;
+    color: var(--text-muted);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+
+    &.danger {
+      color: white;
+      background-color: var(--accent-danger);
+    }
+
+    &.warning {
+      color: white;
+      background-color: var(--accent-warning);
+    }
+
+    &.success {
+      color: white;
+      background-color: var(--accent-success);
+    }
+  }
+}

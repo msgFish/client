@@ -35,6 +35,16 @@
       <line x1="4" y1="15" x2="20" y2="15"></line>
       <line x1="10" y1="3" x2="8" y2="21"></line>
       <line x1="16" y1="3" x2="14" y2="21"></line>
+    `,
+    check: `
+      <polyline points="20 6 9 17 4 12"></polyline>
+    `,
+    x: `
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    `,
+    slash: `
+      <path d="M15 4.5L8.5 18.5"/>
     `
   }
 

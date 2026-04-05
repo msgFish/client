@@ -22,17 +22,17 @@
 
 <button 
   class={[
-    "card text-gray-400",
-    thin ? 'h-9' : 'h-10'
+    "storybook-card",
+    thin ? 'thin' : undefined
   ]}
   {...props}
 >
   <div class="title">
     {#if isChannel}<Icon icon="hash" size={18} />{/if}
-    <p class="text-sm font-medium line-clamp-1 text-ellipsis whitespace-nowrap wrap-anywhere">{title}</p>
+    <p class="ellipsis">{title}</p>
   </div>
 
   {#if subtitle}
-    <p class="subtitle font-medium line-clamp-1 text-ellipsis whitespace-nowrap wrap-anywhere">{subtitle}</p>
+    <p class="subtitle ellipsis">{subtitle}</p>
   {/if}
 </button>

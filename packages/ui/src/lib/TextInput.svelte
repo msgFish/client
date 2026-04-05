@@ -7,16 +7,15 @@
     onsubmit?: () => void;
   }
 
-  const { placeholder, class: className, ...props }: Props = $props();
+  const { placeholder }: Props = $props();
 
   let input!: HTMLInputElement;
 </script>
 
 <input
   bind:this={input}
-  class={["storybook-textinput", className]}
+  class="storybook-textinput"
   {placeholder}
-  {...props}
 
   onkeydown={(e) => {
     switch (e.key) {

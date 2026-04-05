@@ -1,0 +1,37 @@
+:root {
+  color: white;
+  --text-muted: #848484;
+
+  --accent: #4D57EA;
+  --accent-danger: #ea4d4d;
+  --accent-warning: #c1a367;
+  --accent-success: #5fb05b;
+  --accent-muted: #454caf;
+
+  --bg-element: #393A42;
+  --bg-element-highlighted: #44454D;
+
+  --border-element: 1px outset #FFFFFF10;
+
+  --border-radius-input: 0.5em;
+  --border-radius-button: 0.75em;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+
+  display: -webkit-box;
+
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  white-space: nowrap;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
