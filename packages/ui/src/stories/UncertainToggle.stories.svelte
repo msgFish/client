@@ -6,14 +6,9 @@
   const { Story } = defineMeta({
     title: 'Inputs/UncertainToggle',
     component: UncertainToggle,
-    tags: ['autodocs'],
-    argTypes: {
-      uncertain: { control: 'boolean' }
-    }
+    tags: ['autodocs']
   });
 </script>
 
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
 <Story name="Regular" />
-
-<Story name="Uncertain" args={{ uncertain: true }} />

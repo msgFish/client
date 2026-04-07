@@ -1,5 +1,8 @@
 .storybook-uncertaintoggle {
+  position: relative;
   width: fit-content;
+
+  padding: 3px;
 
   color: white;
   background-color: var(--bg-element);
@@ -10,13 +13,43 @@
   border: var(--border-element);
   border-radius: var(--border-radius-button);
 
+  cursor: pointer;
+
   overflow: hidden;
 
-  transition: all 0.1s ease-in-out;
+  & > div {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+
+    background-color: transparent;
+    color: white;
+
+    border-radius: var(--border-radius-inner-button);
+
+    transition: all 0.1s ease-in-out;
+
+    &.danger {
+      transform: translateX(0%);
+      background-color: var(--accent-danger);
+    }
+
+    &.warning {
+      transform: translateX(100%);
+      background-color: var(--accent-warning);
+    }
+
+    &.success {
+      transform: translateX(200%);
+      background-color: var(--accent-success);
+    }
+  }
 
   & > button {
-    width: 40px;
-    height: 36px;
+    z-index: 1;
+
+    width: 32px;
+    height: 32px;
 
     background-color: transparent;
     color: var(--text-muted);
@@ -30,19 +63,10 @@
 
     cursor: pointer;
 
-    &.danger {
-      color: white;
-      background-color: var(--accent-danger);
-    }
+    transition: all 0.1s ease-in-out;
 
-    &.warning {
+    &.active {
       color: white;
-      background-color: var(--accent-warning);
-    }
-
-    &.success {
-      color: white;
-      background-color: var(--accent-success);
     }
   }
 }

@@ -4,23 +4,26 @@
 
   interface Props {
     state?: -1 | 0 | 1
-    uncertain?: boolean
   }
 
   let {
-    uncertain,
-    state = $bindable(uncertain ? 0 : -1),
+    state = $bindable(0),
   }: Props = $props();
 </script>
 
 <div
   class='storybook-uncertaintoggle'
 >
-  <button class={[state === -1 ? 'danger' : undefined]} onclick={() => state = -1}><Icon icon='x'/></button>
-  
-  {#if uncertain}
-    <button class={[state === 0 ? 'warning' : undefined]} onclick={() => state = 0}><Icon icon='slash'/></button>
-  {/if}
+  <div 
+    class={state === -1
+      ? 'danger'
+      : state === 0
+        ? 'warning'
+        : 'success'
+    }
+  ></div>
 
-  <button class={[state === 1 ? 'success' : undefined]} onclick={() => state = 1}><Icon icon='check'/></button>
+  <button class={[state === -1 ? 'active' : undefined]} onclick={() => state = -1}><Icon icon='x'/></button>
+  <button class={[state === 0 ? 'active' : undefined]} onclick={() => state = 0}><Icon icon='slash'/></button>
+  <button class={[state === 1 ? 'active' : undefined]} onclick={() => state = 1}><Icon icon='check'/></button>
 </div>
