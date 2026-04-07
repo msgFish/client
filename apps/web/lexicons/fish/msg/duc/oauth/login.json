@@ -1,0 +1,42 @@
+{
+  "defs": {
+    "main": {
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "OAuth URI",
+          "properties": {
+            "href": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ],
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "handle": {
+            "format": "handle",
+            "type": "string"
+          },
+          "redirectUri": {
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "handle",
+          "redirectUri"
+        ],
+        "type": "params"
+      },
+      "type": "procedure"
+    }
+  },
+  "id": "fish.msg.duc.oauth.login",
+  "lexicon": 1
+}

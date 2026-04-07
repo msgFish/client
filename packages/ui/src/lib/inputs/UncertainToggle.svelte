@@ -1,6 +1,6 @@
 <script lang="ts">
-  import './toggle.css';
-  import Icon from './Icon.svelte';
+  import './uncertaintoggle.css';
+  import Icon from '../Icon.svelte';
 
   interface Props {
     state?: -1 | 0 | 1
@@ -14,7 +14,7 @@
 </script>
 
 <div
-  class='storybook-toggle'
+  class='storybook-uncertaintoggle'
 >
   <button class={[state === -1 ? 'danger' : undefined]} onclick={() => state = -1}><Icon icon='x'/></button>
   

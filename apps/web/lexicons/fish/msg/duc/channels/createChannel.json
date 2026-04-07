@@ -1,0 +1,43 @@
+{
+  "defs": {
+    "main": {
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "Channel creation options",
+          "properties": {
+            "members": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "members"
+          ],
+          "type": "object"
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "Created channel",
+          "properties": {
+            "channel": {
+              "ref": "fish.msg.duc.channels.defs#channel",
+              "type": "ref"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "procedure"
+    }
+  },
+  "id": "fish.msg.duc.channels.createChannel",
+  "lexicon": 1
+}

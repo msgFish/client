@@ -1,3 +1,4 @@
+  import { xrpc as xrpcFetch } from '@atproto/lex';
 import { getStoredProperty } from './storage';
 
 export function events() {
@@ -28,6 +29,16 @@ export async function api(path: string, init?: RequestInit): Promise<Response> {
       Authorization: `Bearer ` + token,
     }
   });
+}
+
+export async function xrpc<P extends Parameters<typeof xrpcFetch>>(
+  ns: P[1],
+  options: P[2]
+) {
+  const server = getStoredProperty('server');
+  if (!server) throw new Error("no server specified");
+
+  return xrpcFetch(server, ns, options);
 }
 
 export function method(method: string) {

@@ -1,0 +1,44 @@
+{
+  "defs": {
+    "main": {
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "Array of messages",
+          "properties": {
+            "messages": {
+              "items": {
+                "ref": "fish.msg.duc.channels.defs#message",
+                "type": "ref"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "beforeMessageTid": {
+            "type": "string"
+          },
+          "channelTid": {
+            "type": "string"
+          },
+          "limit": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "channelTid",
+          "beforeMessageTid"
+        ],
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "fish.msg.duc.channels.getChannelMessages",
+  "lexicon": 1
+}

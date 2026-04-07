@@ -1,8 +1,10 @@
-import Button from './Button.svelte';
-import Card from './Card.svelte';
-import TextArea from './TextArea.svelte';
-import TextInput from './TextInput.svelte';
+import './_index.css';
+
+import Button from './inputs/Button.svelte';
+import TextArea from './inputs/TextArea.svelte';
+import TextInput from './inputs/TextInput.svelte';
 import Icon from './Icon.svelte';
+import Card from './Card.svelte';
 
 // Reexport your entry components here
 export {

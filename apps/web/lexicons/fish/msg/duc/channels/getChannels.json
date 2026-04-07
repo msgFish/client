@@ -1,0 +1,26 @@
+{
+  "defs": {
+    "main": {
+      "description": "A list of channels the querying user has membership to",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "List of channels",
+          "properties": {
+            "channels": {
+              "items": {
+                "ref": "fish.msg.duc.channels.defs#channel",
+                "type": "ref"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "query"
+    }
+  },
+  "id": "fish.msg.duc.channels.getChannels",
+  "lexicon": 1
+}

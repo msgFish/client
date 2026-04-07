@@ -15,7 +15,7 @@
       {
         "label": "main",
         "title": "Fish",
-        "url": "/app/chat",
+        "url": "/app/login",
         "visible": false,
         "width": 1000,
         "height": 700,

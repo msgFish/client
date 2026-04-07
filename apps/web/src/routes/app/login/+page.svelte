@@ -1,10 +1,11 @@
 <script lang="ts">
   import fishLogo from '$assets/fish_logo.svg';
 
-  import { api, json, method } from '$lib/api';
+  import { api, json, method, xrpc } from '$lib/api';
   import { ojoin } from '$lib/object';
   import { getStoredProperty, setStoredProperty } from '$lib/storage';
   import { openUrl } from '@tauri-apps/plugin-opener';
+  import * as fish from '../../../../generated/lexicons/fish';
   import { Button, Icon, TextInput } from "ui";
 
   let error = $state<string | null>(null);
@@ -30,7 +31,7 @@
         handle = h;
       }}
     >
-      <div class="flex flex-col  space-y-4">
+      <div class="flex flex-col space-y-4">
         <div class="flex flex-row space-x-3">
           <TextInput 
             required 
@@ -71,21 +72,6 @@
             server = 'http://' + server;
           else
             server = 'https://' + server;
-        }
-
-        setStoredProperty('server', server);
-        
-        const res = await api(
-          '/duc/oauth/login',
-          ojoin(method('POST'), json({ 
-            handle,
-            redirect_uri: 'msgfish:///session'
-          }))
-        );
-
-        if (res.ok) {
-          const data = await res.json();
-          openUrl(data.href);
         }
       }}
     >

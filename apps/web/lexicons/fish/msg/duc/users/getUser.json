@@ -1,0 +1,39 @@
+{
+  "defs": {
+    "main": {
+      "errors": [
+        {
+          "name": "userNotFound"
+        }
+      ],
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "description": "A user object",
+          "properties": {
+            "user": {
+              "ref": "fish.msg.duc.users.defs#user",
+              "type": "ref"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "fish.msg.duc.users.getUser",
+  "lexicon": 1
+}

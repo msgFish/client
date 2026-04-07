@@ -1,4 +1,4 @@
-import '../src/main.css';
+import '../src/lib/_index.css';
 import type { Preview } from '@storybook/sveltekit'
 
 const preview: Preview = {

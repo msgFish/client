@@ -1,18 +1,19 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf';
-  import TextInput from '$lib/inputs/TextInput.svelte';
-  import { fn } from 'storybook/test';
+  import UncertainToggle from '../lib/inputs/UncertainToggle.svelte';
 
   // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
   const { Story } = defineMeta({
-    title: 'Inputs/TextInput',
-    component: TextInput,
+    title: 'Inputs/UncertainToggle',
+    component: UncertainToggle,
     tags: ['autodocs'],
-    args: {
-      onsubmit: fn(),
+    argTypes: {
+      uncertain: { control: 'boolean' }
     }
   });
 </script>
 
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
-<Story name="Regular" args={{ placeholder: 'Placeholder' }} />
+<Story name="Regular" />
+
+<Story name="Uncertain" args={{ uncertain: true }} />

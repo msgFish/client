@@ -1,0 +1,24 @@
+{
+  "defs": {
+    "user": {
+      "description": "A user object",
+      "properties": {
+        "did": {
+          "format": "did",
+          "type": "string"
+        },
+        "handle": {
+          "format": "handle",
+          "type": "string"
+        }
+      },
+      "required": [
+        "did",
+        "handle"
+      ],
+      "type": "object"
+    }
+  },
+  "id": "fish.msg.duc.users.defs",
+  "lexicon": 1
+}
