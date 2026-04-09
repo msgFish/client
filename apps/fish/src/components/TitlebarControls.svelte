@@ -35,7 +35,7 @@
         aria-label="close" 
         class={[
           'w-3 h-3 rounded-full',
-          isFocused ? 'bg-red-400' : 'bg-gray-700',
+          isFocused ? 'bg-red-400 active:bg-[#ff6467CA]' : 'bg-gray-700',
         ]}
         onclick={() => appWindow.close()}
       ></button>
@@ -45,7 +45,7 @@
         aria-label="minimize" 
         class={[
           'w-3 h-3 rounded-full',
-          isFocused ? 'bg-yellow-400' : 'bg-gray-700'
+          isFocused ? 'bg-yellow-400 active:bg-[#fdc700CA]' : 'bg-gray-700'
         ]}
         onclick={() => appWindow.minimize()}
       ></button>
@@ -55,7 +55,7 @@
         aria-label="fullscreen" 
         class={[
           'w-3 h-3 rounded-full',
-          isFocused ? 'bg-green-400' : 'bg-gray-700'
+          isFocused ? 'bg-green-400 active:bg-[#05df72CA]' : 'bg-gray-700'
         ]}
         onclick={() => appWindow.setFullscreen(!isFullscreen)}
       ></button>
