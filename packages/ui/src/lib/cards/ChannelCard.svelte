@@ -1,8 +1,8 @@
 <script lang="ts">
-  import './card.css';
+  import './channelcard.css';
 
   import type { HTMLButtonAttributes } from 'svelte/elements';
-  import Icon from './Icon.svelte';
+  import Icon from '../Icon.svelte';
 
   interface Props extends HTMLButtonAttributes {
     title: string
