@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "web",
+  "productName": "fish",
   "version": "0.1.0",
-  "identifier": "fish.msg.web",
+  "identifier": "fish.msg.fish",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:1420",
@@ -10,11 +10,28 @@
     "frontendDist": "../build"
   },
   "app": {
+    "macOSPrivateApi": true,
     "windows": [
       {
-        "title": "web",
-        "width": 800,
-        "height": 600
+        "label": "main",
+        "title": "Fish",
+        "url": "/app",
+        "visible": false,
+        "width": 1000,
+        "height": 700,
+        "minWidth": 600,
+        "minHeight": 400,
+        "decorations": false,
+        "transparent": true
+      },
+      {
+        "label": "splash",
+        "url": "/splash",
+        "width": 300,
+        "height": 300,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true
       }
     ],
     "security": {

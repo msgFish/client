@@ -12,6 +12,11 @@ const config = {
     adapter: adapter({
       fallback: "index.html",
     }),
+
+    alias: {
+      '$assets': 'src/assets',
+      '$assets/*': 'src/assets/*'
+    }
   },
 };
 

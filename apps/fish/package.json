@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "fish",
   "version": "0.1.0",
   "description": "",
   "type": "module",
@@ -13,8 +13,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
     "@tauri-apps/api": "^2",
-    "@tauri-apps/plugin-opener": "^2"
+    "@tauri-apps/plugin-opener": "^2",
+    "@tauri-apps/plugin-os": "~2",
+    "tailwindcss": "^4.2.2",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.6",

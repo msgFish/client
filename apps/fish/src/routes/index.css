@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+
+  color: white;
+  background-color: #27282C;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  @apply w-full;
+  @apply h-full;
+  @apply m-0;
+
+  overflow: hidden;
+}
+
+@keyframes fish-spin {
+  0% { rotate: 0deg }
+  30% { rotate: -15deg; }
+  100% { rotate: 360deg; }
+}
