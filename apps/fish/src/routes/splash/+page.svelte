@@ -46,11 +46,11 @@
         isDownloading = false;
         await update.install();
 
-        await relaunch();
+        return await relaunch();
       }
-    } else {
-      invoke('set_complete', { task: 'frontend' });
     }
+
+    invoke('set_complete', { task: 'frontend' });
   });
 </script>
 
