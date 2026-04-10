@@ -3,7 +3,7 @@ name: 'Build Preview'
 on:
   push:
     branches:
-      - dev
+      - nightly
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
