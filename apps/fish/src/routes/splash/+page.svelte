@@ -25,20 +25,15 @@
         isUpdating = true;
         isDownloading = true;
 
-        let contentLength: number | undefined = 0;
-        // alternatively we could also call update.download() and update.install() separately
         await update.download((event) => {
           switch (event.event) {
             case 'Started':
               totalBytes = event.data.contentLength;
-              console.log(`started downloading ${event.data.contentLength} bytes`);
               break;
             case 'Progress':
               downloadedBytes += event.data.chunkLength;
-              console.log(`downloaded ${downloadedBytes} from ${contentLength}`);
               break;
             case 'Finished':
-              console.log('download finished');
               break;
           }
         });
