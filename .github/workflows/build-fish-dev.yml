@@ -67,4 +67,5 @@ jobs:
           releaseName: 'Fish v__VERSION__'
           prerelease: true
           uploadWorkflowArtifacts: true
+          releaseAssetNamePattern: '[name]_[version]_[arch]_[platform][ext]'
           args: ${{ matrix.args }}

@@ -13,7 +13,7 @@
     "tauri": "bun run cargo:sync && tauri",
     "dev": "bun run tauri dev",
     "build": "bun run tauri build",
-    "build:dev": "bun run tauri build --dev"
+    "build:dev": "bun run tauri build --debug"
   },
   "license": "MIT",
   "dependencies": {
