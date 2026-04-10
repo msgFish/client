@@ -55,9 +55,11 @@ jobs:
       - uses: tauri-apps/tauri-action@ci/release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
-          projectPath: './apps/web'
-          tagName: v__VERSION__
-          releaseName: 'msgFish Desktop v__VERSION__'
+          projectPath: './apps/fish'
+          tagName: fish-v__VERSION__
+          releaseName: 'Fish v__VERSION__'
           uploadWorkflowArtifacts: true
           args: ${{ matrix.args }}
