@@ -1,6 +1,6 @@
 [package]
 name = "fish"
-version = "0.1.1-beta.1"
+version = "0.1.2-beta.1"
 description = "Where all your fish go to communicate"
 authors = ["msg.fish"]
 edition = "2021"
