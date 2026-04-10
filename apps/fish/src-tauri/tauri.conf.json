@@ -51,7 +51,7 @@
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUyNjcwNjg3RDZCQTg4MjIKUldRaWlMcldod1puNHNwbk1JT2RhRXdUWnhuc1UxZjhwbG5ML1FkcWFEVjVhMlhwTzF6eEtRaW8K",
       "endpoints": [
-        "https://api.msg.fish/update/{{target}}/{{arch}}/{{current_version}}"
+        "https://api.msg.fish/update/fish/{{target}}/{{arch}}/{{current_version}}"
       ]
     }
   }
