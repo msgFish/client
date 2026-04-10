@@ -26,6 +26,7 @@
       },
       {
         "label": "splash",
+        "title": "Fish Updater",
         "url": "/splash",
         "width": 300,
         "height": 300,
