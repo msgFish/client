@@ -16,4 +16,9 @@
   max-height: 100px;
   overflow-y: auto;
   overflow-x: hidden;
+
+  &:disabled {
+    color: var(--text-disabled);
+    background-color: var(--bg-element-disabled);
+  }
 }

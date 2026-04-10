@@ -1,15 +1,18 @@
 :root {
   color: white;
   --text-muted: #848484;
+  --text-disabled: #585858;
 
   --accent: #4D57EA;
   --accent-danger: #ea4d4d;
   --accent-warning: #dabf53;
   --accent-success: #5fb05b;
   --accent-muted: #454caf;
+  --accent-disabled: #3b3f75;
 
   --bg-element: #393A42;
   --bg-element-highlighted: #44454D;
+  --bg-element-disabled: #2b2b2e;
 
   --border-element: 1px outset #FFFFFF10;
 

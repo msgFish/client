@@ -7,7 +7,12 @@
     onsubmit?: () => void;
   }
 
-  const { placeholder, class: className, ...props }: Props = $props();
+  let { 
+    placeholder, 
+    value = $bindable(),
+    class: className, 
+    ...props 
+  }: Props = $props();
 
   let input!: HTMLInputElement;
 </script>
@@ -16,6 +21,7 @@
   bind:this={input}
   class={["storybook-textinput", className]}
   {placeholder}
+  bind:value
   {...props}
 
   onkeydown={(e) => {

@@ -1,0 +1,60 @@
+{
+  "defs": {
+    "main": {
+      "errors": [
+        {
+          "name": "invalidSession"
+        }
+      ],
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "properties": {
+            "accessToken": {
+              "type": "string"
+            },
+            "refreshToken": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "refreshToken",
+            "accessToken"
+          ],
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "error_description": {
+            "type": "string"
+          },
+          "error_uri": {
+            "format": "uri",
+            "type": "string"
+          },
+          "iss": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "state"
+        ],
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "at.ducs.oauth.callback",
+  "lexicon": 1
+}

@@ -1,0 +1,54 @@
+{
+  "defs": {
+    "main": {
+      "errors": [
+        {
+          "description": "The specified user couldn't be found",
+          "name": "userNotFound"
+        },
+        {
+          "description": "The specified user already has a home authority",
+          "name": "userAlreadyHasHome"
+        }
+      ],
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "properties": {
+            "href": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ],
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "client_id": {
+            "format": "uri",
+            "type": "string"
+          },
+          "handle": {
+            "type": "string"
+          },
+          "redirect_uri": {
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "handle",
+          "redirect_uri"
+        ],
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "at.ducs.oauth.login",
+  "lexicon": 1
+}
