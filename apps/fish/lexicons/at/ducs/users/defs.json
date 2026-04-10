@@ -1,0 +1,39 @@
+{
+  "defs": {
+    "avatar": {
+      "accept": [
+        "image/png",
+        "image/jpeg"
+      ],
+      "description": "Image to be displayed next to messages from a user",
+      "maxSize": 1000000,
+      "type": "blob"
+    },
+    "profile": {
+      "properties": {
+        "avatar": {
+          "format": "uri",
+          "type": "string"
+        },
+        "did": {
+          "format": "did",
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "handle": {
+          "format": "handle",
+          "type": "string"
+        }
+      },
+      "required": [
+        "did",
+        "handle"
+      ],
+      "type": "object"
+    }
+  },
+  "id": "at.ducs.users.defs",
+  "lexicon": 1
+}

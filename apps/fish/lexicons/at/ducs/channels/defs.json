@@ -1,0 +1,25 @@
+{
+  "defs": {
+    "channel": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parentTid": {
+          "format": "tid",
+          "type": "string"
+        },
+        "tid": {
+          "format": "tid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tid"
+      ],
+      "type": "object"
+    }
+  },
+  "id": "at.ducs.channels.defs",
+  "lexicon": 1
+}

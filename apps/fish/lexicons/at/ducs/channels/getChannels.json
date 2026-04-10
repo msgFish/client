@@ -1,0 +1,37 @@
+{
+  "defs": {
+    "main": {
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "properties": {
+            "channels": {
+              "ref": "at.ducs.channels.defs#channel",
+              "type": "ref"
+            }
+          },
+          "required": [
+            "channels"
+          ],
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "beforeTid": {
+            "format": "tid",
+            "type": "string"
+          },
+          "limit": {
+            "default": 20,
+            "type": "integer"
+          }
+        },
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "at.ducs.channels.getChannels",
+  "lexicon": 1
+}

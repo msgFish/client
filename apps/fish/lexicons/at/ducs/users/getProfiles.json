@@ -1,0 +1,42 @@
+{
+  "defs": {
+    "main": {
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "properties": {
+            "failed": {
+              "items": {
+                "format": "at-identifier",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "profiles": {
+              "items": {
+                "ref": "at.ducs.users.defs#profile",
+                "type": "ref"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "parameters": {
+        "properties": {
+          "ids": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "type": "params"
+      },
+      "type": "query"
+    }
+  },
+  "id": "at.ducs.users.getProfiles",
+  "lexicon": 1
+}

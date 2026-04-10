@@ -1,0 +1,46 @@
+{
+  "defs": {
+    "main": {
+      "errors": [
+        {
+          "name": "invalidAvatarData"
+        },
+        {
+          "name": "avatarUploadFailed"
+        },
+        {
+          "name": "profileUpdateFailed"
+        }
+      ],
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "nullable": [
+            "displayName",
+            "avatar"
+          ],
+          "properties": {
+            "avatar": {
+              "description": "An 'image/png' or 'image/jpeg' encoded as a base64 data URL",
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "ref": "at.ducs.users.defs#profile",
+          "type": "ref"
+        }
+      },
+      "type": "procedure"
+    }
+  },
+  "id": "at.ducs.users.updateProfile",
+  "lexicon": 1
+}

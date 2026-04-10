@@ -1,0 +1,38 @@
+{
+  "defs": {
+    "main": {
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "properties": {
+            "members": {
+              "items": {
+                "format": "at-identifier",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "members"
+          ],
+          "type": "object"
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "ref": "at.ducs.channels.defs#channel",
+          "type": "ref"
+        }
+      },
+      "type": "procedure"
+    }
+  },
+  "id": "at.ducs.channels.createChannel",
+  "lexicon": 1
+}
