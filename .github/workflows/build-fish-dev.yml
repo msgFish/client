@@ -26,6 +26,10 @@ jobs:
             args: ''
 
     runs-on: ${{ matrix.platform }}
+    
+    env:
+      BUILD_TARGET: ${{ matrix.platform }}
+
     steps:
       - uses: actions/checkout@v4
 
