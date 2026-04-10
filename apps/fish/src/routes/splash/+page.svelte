@@ -59,7 +59,13 @@
   
   {#if isUpdating}
     {#if isDownloading}
-      <p class="text-sm font-semibold">Downloading {downloadedBytes}/{totalBytes ?? '?'}</p>
+      <div class='w-full flex flex-col items-center space-y-4'>
+        <p class="text-sm font-semibold">Downloading {downloadedBytes}/{totalBytes ?? '?'}</p>
+
+        <div class='w-6/10 h-1.5 rounded-full overflow-hidden bg-gray-700'>
+          <div class={`w-${totalBytes ? downloadedBytes / totalBytes : 0}/100 h-full bg-white`}></div>
+        </div>
+      </div>
     {:else}
       <p class="text-sm font-semibold">Installing</p>
     {/if}
