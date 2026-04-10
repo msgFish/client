@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import pkg from './package.json';
 
 const CARGO_CONFIG_PATH = "src-tauri/Cargo.toml";
-const TAURI_CONFIG_PATH = "src-tauri/tauri.config.json";
+const TAURI_CONFIG_PATH = "src-tauri/tauri.conf.json";
 
 const cargoConfig = fs.readFileSync(CARGO_CONFIG_PATH, "utf-8");
 const semver = pkg.version;
